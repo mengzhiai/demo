@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-01 16:51:26
+ * @LastEditTime: 2019-08-19 09:41:39
+ * @LastEditors: Please set LastEditors
+ */
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
@@ -16,10 +23,12 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import('./views/About.vue')
+    },
+    {
+      path: '/tab',
+      name: 'tab',
+      component: () => import('./views/tab.vue')
     }
   ]
 })
