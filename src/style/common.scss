@@ -1,0 +1,15 @@
+
+$themeColor: #f00;
+$height: 300px;
+.link{
+  color: $themeColor;
+}
+
+/* .el-input__inner{
+  color: #f00!important;
+} */
+.my-input{
+  .el-input__inner {
+    color: #f00!important;
+  }
+}

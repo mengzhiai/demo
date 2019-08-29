@@ -2,34 +2,28 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-15 09:19:26
- * @LastEditTime: 2019-08-19 15:05:20
+ * @LastEditTime: 2019-08-26 14:30:33
  * @LastEditors: Please set LastEditors
  -->
 <template>
   <div>
-    <el-breadcrumb separator="/" :data="crumbMenu">
+    <el-breadcrumb separator="/">
       <el-breadcrumb-item>首页</el-breadcrumb-item>
-      <el-breadcrumb-item>{{crumbMenu.childName}}</el-breadcrumb-item>
-      <el-breadcrumb-item>{{crumbMenu.currentName}}</el-breadcrumb-item>
+      <el-breadcrumb-item v-for="(item,i) in $route.meta" :key="i" :to="{path: item.url}">{{item.name}}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>
 
 <script>
   export default {
-    props:["crumbData"],
+    // props:["crumbData"],
     data(){
       return{
-        testMessage: "我是一个测试组件",
-        crumbMenu:{
-          childName: "",
-          currentName: ""
-        }
       }
     },
     mounted(){
-      console.log(this.crumbData);
-      this.crumbMenu = this.crumbData;
+      // console.log(this.crumbData);
+      // this.crumbMenu = this.crumbData;
     },
     methods:{
 

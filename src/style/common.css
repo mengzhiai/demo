@@ -1,0 +1,10 @@
+.link {
+  color: #f00;
+}
+
+/* .el-input__inner{
+  color: #f00!important;
+} */
+.my-input .el-input__inner {
+  color: #f00 !important;
+}

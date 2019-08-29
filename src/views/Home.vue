@@ -2,42 +2,63 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-08-26 11:26:50
+ * @LastEditTime: 2019-08-29 14:51:44
  * @LastEditors: Please set LastEditors
  -->
 <template>
 <div>
-  <el-form :model="formData" ref="formData" :rules="rules" label-width="140px">
-    <el-form-item label="请输入数字" prop="phone">
-      <el-input v-model="formData.phone"></el-input>
-    </el-form-item>
-    <el-form-item label="请输入邮箱" prop="email">
-      <el-input v-model="formData.number"></el-input>
-    </el-form-item>
-  </el-form>
+  <el-row>
+    <el-col :span="4">
+      <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router>
+        <el-submenu index="1">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>导航一</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="product">选项1</el-menu-item>
+            <el-menu-item index="about">选项2</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+        <el-menu-item index="2">
+          <i class="el-icon-menu"></i>
+          <span slot="title">导航二</span>
+        </el-menu-item>
+        <el-menu-item index="3" disabled>
+          <i class="el-icon-document"></i>
+          <span slot="title">导航三</span>
+        </el-menu-item>
+        <el-menu-item index="4">
+          <i class="el-icon-setting"></i>
+          <span slot="title">导航四</span>
+        </el-menu-item>
+      </el-menu>
+    </el-col>
+    <el-col :span="12">
+      <router-view></router-view>
+    </el-col>
+  </el-row>
+
 </div>
 </template>
 
 <script>
+import rules from '@/utils/rules.js'
 export default {
   data() {
     return {
       formData: {
 
       },
-      rules: {
-        phone: [{
-          required: true,
-          validator: rules.FormValidate.Form().validateNumber,
-          trigger: 'blur'
-        }],
-        email: [{
-          required: true,
-          validator: rules.FormValidate.Form().validateEmail,
-          trigger: 'blur'
-        }]
-      }
     };
+  },
+  methods:{
+    handleOpen(){
+
+    },
+    handleClose(){
+      
+    }
   }
 };
 </script>
