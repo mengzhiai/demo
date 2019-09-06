@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-08-29 14:51:44
+ * @LastEditTime: 2019-09-06 14:52:11
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -18,6 +18,9 @@
           <el-menu-item-group>
             <el-menu-item index="product">选项1</el-menu-item>
             <el-menu-item index="about">选项2</el-menu-item>
+            <el-menu-item index="verify">验证</el-menu-item>
+            <el-menu-item index="qrDemo">表单验证</el-menu-item>
+            <el-menu-item index="step">步骤条</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="2">

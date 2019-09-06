@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-08-26 14:29:16
+ * @LastEditTime: 2019-09-06 14:51:48
  * @LastEditors: Please set LastEditors
  */
 import Vue from 'vue'
@@ -52,9 +52,37 @@ export default new Router({
             {
               // url: '/login',
               name: '关于分类'
+            },
+            {
+              url: '/verify',
+              name: '关于分类'
             }
           ],
           component: () => import('./views/About.vue')
+        },
+        {
+          path: '/verify',
+          name: 'verify',
+          meta: [
+
+          ],
+          component: () => import('./views/verify.vue')
+        },
+        {
+          path: '/qrDemo',
+          name: 'qrDemo',
+          meta: [
+
+          ],
+          component: () => import('./views/qrDemo.vue')
+        },
+        {
+          path: '/step',
+          name: 'step',
+          meta: [
+
+          ],
+          component: () => import('./views/step.vue')
         }
       ]
     }]

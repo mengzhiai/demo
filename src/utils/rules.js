@@ -2,10 +2,10 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-20 09:30:20
- * @LastEditTime: 2019-08-20 10:35:54
+ * @LastEditTime: 2019-09-05 15:09:33
  * @LastEditors: Please set LastEditors
  */
-// 账号
+/* // 账号
 let codeReg = /^(?![0-9]*$)(?![a-zA-Z]*$)[a-zA-Z0-9]{6,20}$/
 // 电话
 let phoneReg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/
@@ -23,46 +23,13 @@ let regId = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
 
 let emailReg = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/
 
-
 let FormValidate = (function () {
-  function FormValidate() { }
-  FormValidate.Form = function () {
-    return {
-      validateNumber(rule, value, callback) {
-        if(!value){
-          if (numberReg.test(value)) {
-            callback()
-          } else {
-            callback(new Error('请输入数字'))
-          }
-        }else{
-          callback(new Error('不能为空'))
-        }
-      },
-      validateEmail(rule, value, callback){
-        if(!value){
-          if(emailReg.test(value)){
-            callback()
-          }else{
-            callback(new Error('邮箱格式错误'))
-          }
-        }else{
-          callback(new Error('请输入邮箱'))
-        }
-      }
-    }
-  }
-  return FormValidate
-}())
-exports.FormValidate = FormValidate
-
-/* let FormValidate = (function () {
-  function FormValidate() { }
+  function FormValidate () {}
   // From表单验证规则  可用于公用的校验部分
   FormValidate.Form = function () {
     return {
       // 账号的验证规则
-      validateCode(rule, value, callback) {
+      validateCode (rule, value, callback) {
         if (!value) {
           return callback(new Error('请输入账号'))
         }
@@ -74,10 +41,10 @@ exports.FormValidate = FormValidate
       },
 
       // 只能数字的验证
-      validateNumber(rule, value, callback) {
+      validateNumber (rule, value, callback) {
         if (value !== '') {
           if (!numberReg.test(value)) {
-            callback(new Error('员工数量必须为数字'))
+            callback(new Error('必须为数字'))
           } else {
             callback()
           }
@@ -87,7 +54,7 @@ exports.FormValidate = FormValidate
       },
 
       // 密码的验证
-      validatePsdReg(rule, value, callback) {
+      validatePsdReg (rule, value, callback) {
         if (!value) {
           return callback(new Error('请输入密码'))
         }
@@ -99,7 +66,7 @@ exports.FormValidate = FormValidate
       },
 
       // 联系人
-      validateContacts(rule, value, callback) {
+      validateContacts (rule, value, callback) {
         if (!value) {
           return callback(new Error('请输入联系人'))
         }
@@ -111,7 +78,7 @@ exports.FormValidate = FormValidate
       },
 
       // 邮箱的验证规则
-      validateEmail(rule, value, callback) {
+      validateEmail (rule, value, callback) {
         if (value !== '') {
           if (!emailReg.test(value)) {
             callback(new Error('邮箱格式不正确'))
@@ -124,7 +91,7 @@ exports.FormValidate = FormValidate
       },
 
       // 电话号码的验证
-      validatePhone(rule, value, callback) {
+      validatePhone (rule, value, callback) {
         if (!value) {
           return callback(new Error('请输入手机号码'))
         }
@@ -136,7 +103,7 @@ exports.FormValidate = FormValidate
       },
 
       // 身份证的验证规则
-      ID(rule, value, callback) {
+      ID (rule, value, callback) {
         if (!value) {
           return callback(new Error('身份证不能为空'))
         }
@@ -151,4 +118,117 @@ exports.FormValidate = FormValidate
 
   return FormValidate
 }())
+
 exports.FormValidate = FormValidate */
+
+
+
+
+// const inputReg = 
+
+// const textArea = 
+
+const numberReg = /^\d+$|^\d+[.]?\d+$/;
+const pointReg = /^[1-9]+\d*(\.\d{0,2})?$|^0?\.\d{0,2}$/;
+
+let FormValidate = (function () {
+  function FormValidate () {}
+  // 公用验证
+  FormValidate.Form = function () {
+    return {
+      // 只能数字的验证
+      validateNumber (rule, value, callback) {
+        if (value !== '') {
+          if (!numberReg.test(value)) {
+            callback(new Error('必须为数字'))
+          } else {
+            if(value.length > 10){
+              callback(new Error('长度不能大于10'))
+            }else{
+              callback()
+            }
+          }
+        } else {
+          callback()
+        }
+      },
+      //input字符串不必填
+      validateStr (rule, value, callback) {
+        if(value.length > 10){
+          callback(new Error('长度不能大于10个字符'))
+        }else{
+          callback()
+        }
+      },
+      validateStrMust (rule, value, callback) {
+        if(value !== ''){
+          if(value.length > 10){
+            callback(new Error('长度不能大于10个字符'))
+          }else{
+            callback()
+          }
+        }else{
+          callback(new Error('此项为必填')) 
+        }
+        
+      },
+      validatePatent (rule, value, callback) {
+        if(value !== ''){
+          if(value.length > 10){
+            callback(new Error('长度不能大于10个字符'))
+          }else{
+            callback()
+          }
+        }else{
+          callback(new Error('此项为必填')) 
+        }
+        
+      },
+      // 只能数字的验证
+      validateMoney (rule, value, callback) {
+        if (value !== ''){
+          if (isNaN(value)){
+            return callback(new Error('金额必须为数字'))
+          }
+          if(value < 0){
+            return callback(new Error('金额必须大于0'))
+          }
+          if(!pointReg.test(value)){
+            return callback(new Error('金额保留两位小数'))
+          }
+          if(value.length > 10){
+            return callback(new Error('长度不能大于10'))
+          }
+        }else {
+          callback()
+          // callback(new Error('请输入金额'))
+        }
+
+        return;
+        if (value !== '') {
+          if (!isNaN(value)) {
+            if(value > 0){
+              if(!pointReg.test(value)){
+                callback(new Error('1111111111111111'))
+              }
+              if(value.length > 10){
+                callback(new Error('长度不能大于10'))
+              }else{
+                callback()
+              }
+            }else{
+              callback(new Error('金额必须大于0'))
+            }
+          } else {
+            callback(new Error('必须为数字'))
+          }
+        } else {
+          callback()
+        }
+      },
+    }
+  }
+
+  return FormValidate
+}())
+exports.FormValidate = FormValidate
