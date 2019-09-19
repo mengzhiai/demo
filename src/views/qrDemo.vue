@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-05 09:43:27
- * @LastEditTime: 2019-09-06 14:16:13
+ * @LastEditTime: 2019-09-12 09:49:52
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -100,10 +100,10 @@ export default {
         },
         {
           name: 'bbb',
-          age: 30
+          age: 20
         },
         {
-          name: 'ccc',
+          name: 'aaa',
           age: 40
         }
       ],

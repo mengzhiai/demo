@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-09-06 14:51:48
+ * @LastEditTime: 2019-09-19 11:08:41
  * @LastEditors: Please set LastEditors
  */
 import Vue from 'vue'
@@ -83,6 +83,14 @@ export default new Router({
 
           ],
           component: () => import('./views/step.vue')
+        },
+        {
+          path: '/guide',
+          name: 'guide',
+          meta: [
+
+          ],
+          component: () => import('./views/guide.vue')
         }
       ]
     }]

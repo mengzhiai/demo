@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-06 14:51:16
- * @LastEditTime: 2019-09-06 15:31:17
+ * @LastEditTime: 2019-09-19 10:12:42
  * @LastEditors: Please set LastEditors
  -->
 
@@ -32,6 +32,9 @@
       </div>
     </div>
   </el-dialog>
+  <div data-step="1" data-intro="这里是步骤1!">111</div>
+<div data-step="2" data-intro="这里是步骤2!">222</div>
+<div data-step="3" data-intro="这里是步骤3!">333</div>
 </div>
 </template>
 
