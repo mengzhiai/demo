@@ -2,12 +2,13 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-09-19 11:08:41
+ * @LastEditTime: 2019-09-25 17:15:05
  * @LastEditors: Please set LastEditors
  */
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from './views/Home'
+import layout from './views/layout'
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ export default new Router({
       name: 'home',
       component: home,
       redirect: '/product',
+
+      /* path: '/home',
+      name: 'home',
+      component: home,
+      redirect: '/product', */
       children: [
         {
           path: '/product',
@@ -91,6 +97,22 @@ export default new Router({
 
           ],
           component: () => import('./views/guide.vue')
+        },
+        {
+          path: '/lead',
+          name: 'lead',
+          meta: [
+
+          ],
+          component: () => import('./views/lead.vue')
+        },
+        {
+          path: '/edit',
+          name: 'edit',
+          meta: [
+
+          ],
+          component: () => import('./views/edit.vue')
         }
       ]
     }]

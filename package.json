@@ -13,10 +13,13 @@
     "core-js": "^2.6.5",
     "driver.js": "^0.9.7",
     "element-ui": "^2.11.1",
+    "file-saver": "^2.0.2",
     "intro.js": "^2.9.3",
+    "jszip": "^3.2.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "wangeditor": "^3.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",

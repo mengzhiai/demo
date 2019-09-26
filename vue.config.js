@@ -2,11 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-19 16:00:08
- * @LastEditTime: 2019-09-19 14:26:38
+ * @LastEditTime: 2019-09-19 16:25:05
  * @LastEditors: Please set LastEditors
  */
 
-// const webpack = require('webpack');
+const webpack = require('webpack');
 // const path = require('path');
 module.exports = {
   //基本路径
