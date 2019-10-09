@@ -2,12 +2,12 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-09-25 17:15:22
+ * @LastEditTime: 2019-10-09 11:22:34
  * @LastEditors: Please set LastEditors
  -->
 <template>
 <div>
-  <el-row>
+  <el-row class="home">
     <el-col :span="4">
       <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" router>
         <el-submenu index="1">
@@ -24,6 +24,8 @@
             <el-menu-item index="guide">指导</el-menu-item>
             <el-menu-item index="lead">引导插件</el-menu-item>
             <el-menu-item index="edit">富文本编译器</el-menu-item>
+            <el-menu-item index="g2">图表</el-menu-item>
+            <el-menu-item index="edit2">编译器</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="2">
@@ -40,7 +42,7 @@
         </el-menu-item>
       </el-menu>
     </el-col>
-    <el-col :span="12">
+    <el-col :span="20">
       <router-view></router-view>
     </el-col>
   </el-row>
@@ -50,6 +52,7 @@
 
 <script>
 import rules from '@/utils/rules.js'
+import { setLocalStorage } from '@/utils/localStore'
 export default {
   data() {
     return {
@@ -58,7 +61,13 @@ export default {
       },
     };
   },
+  mounted(){
+    this.init();
+  },
   methods:{
+    init(){
+      setLocalStorage("testData",'123')
+    },
     handleOpen(){
 
     },
@@ -70,4 +79,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home{
+  .el-col{
+    height: 100vh;
+  }
+}
 </style>

@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-19 16:00:08
- * @LastEditTime: 2019-09-19 16:25:05
+ * @LastEditTime: 2019-09-29 13:21:10
  * @LastEditors: Please set LastEditors
  */
 
@@ -38,10 +38,9 @@ module.exports = {
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
-          $: 'jquery',
-          jQuery: 'jquery',
-          'window.jQuery': 'jquery',
-          'window.$': 'jquery'
+        $:"jquery",
+        jQuery:"jquery",
+        "windows.jQuery":"jquery"
       })
     ]
   }

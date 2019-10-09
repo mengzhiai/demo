@@ -2,6 +2,11 @@
   color: #f00;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /* .el-input__inner{
   color: #f00!important;
 } */

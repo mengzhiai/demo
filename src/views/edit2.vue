@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-27 14:07:49
- * @LastEditTime: 2019-10-09 11:35:36
+ * @LastEditTime: 2019-10-09 13:33:44
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -17,7 +17,7 @@
 <script>
 import CKEditor from '@ckeditor/ckeditor5-build-decoupled-document'
 import '@ckeditor/ckeditor5-build-decoupled-document/build/translations/zh-cn'
-import { getLocalStorage } from '@/utils/locqalStore'
+import { getLocalStorage } from '@/utils/localStore'
 export default {
   data() {
     return {
