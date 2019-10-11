@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 13:25:31
- * @LastEditTime: 2019-09-19 11:10:17
+ * @LastEditTime: 2019-10-11 16:46:28
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -17,6 +17,15 @@
     </el-form-item>
     <el-form-item>
       {{formData.money}}
+    </el-form-item>
+    <el-form-item>
+      <el-input v-model="formData.moneyTest" placeholder=""></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-input v-model="formData.money3" placeholder=""></el-input>
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="submitBtn">提交</el-button>
     </el-form-item>
   </el-form>
   <el-dialog title="" :visible.sync="testDialog" width="30%">
@@ -49,7 +58,29 @@
     </el-table>
 
   </el-dialog>
-
+  <el-table
+      :data="tableData"
+      style="width: 100%" @selection-change="handleSelectionChange">
+      <el-table-column type="selection" :selectable='checkboxIndex' width="55" />
+      <el-table-column
+        prop="date"
+        label="日期"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址">
+      </el-table-column>
+      <el-table-column
+        prop="age"
+        label="地址">
+      </el-table-column>
+    </el-table>
   <div class="box">
 
   </div>
@@ -58,17 +89,22 @@
 
 <script>
 import {
-  toDate1,
   formatDate,
   formatDateTime,
-  threeNumberAPointer
+  threeNumberAPointer,
+  moneyNum,
+  toMoneyStr,
+  postMoney
 } from '@/utils/common.js'
 export default {
   data() {
     return {
       formData: {
         nowDate: '',
-        nowTime: ''
+        nowTime: '',
+        money: toMoneyStr(1000),
+        moneyTest: 0.07,
+        money3: 3
       },
       testDialog: false,
       tableData: [{
@@ -83,7 +119,28 @@ export default {
           name: "fdsafdsaf",
           age: 30
         }
-      ]
+      ],
+      tableData: [{
+            date: '2016-05-02',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄',
+            age: 19
+          }, {
+            date: '2016-05-04',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1517 弄',
+            age: 18
+          }, {
+            date: '2016-05-01',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1519 弄',
+            age: 18
+          }, {
+            date: '2016-05-03',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1516 弄',
+            age: -1
+          }]
     }
   },
   mounted() {
@@ -92,9 +149,41 @@ export default {
   methods: {
     init() {
       let time = new Date().getTime();
-      this.formData.nowDate = formatDateTime(time);
+      this.formData.nowDate = formatDate(time);
       this.formData.nowTime = time;
-      this.formData.money = threeNumberAPointer(10000000)
+      // this.formData.money = threeNumberAPointer(10000000)
+      // this.formData.money = 10000000;
+    },
+    submitBtn(){
+      let data = {
+        // money1: postMoney(this.formData.moneyTest + this.formData.money3),
+        money1: (postMoney(this.formData.moneyTest) + postMoney(this.formData.money3)),
+        money2: postMoney(this.formData.money)
+      }
+      this.axios.post('./aaa',data).then(res=>{
+        
+      })
+    },
+    handleSelectionChange(data){
+      console.log(data);
+    },
+    /* handleSelectionChange(data){
+      let arr = [];
+      data.forEach(item=>{
+        if(item.age < 0){
+          this.$message.error("aaa");
+          return;
+        }else{
+          arr.push(item);
+        }
+      })
+    } */
+    checkboxIndex(row){
+      if(row.age < 0){
+        return 0;
+      }else{
+        return 1;
+      }
     }
   }
 }
