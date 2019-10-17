@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 13:25:31
- * @LastEditTime: 2019-10-17 11:10:34
+ * @LastEditTime: 2019-10-17 13:35:15
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -28,14 +28,6 @@
       <el-button type="primary" @click="submitBtn">提交</el-button>
     </el-form-item>
   </el-form>
-  <div>
-    <span>头上一片晴天，心中一个想念</span>
-    <el-divider content-position="left">少年包青天</el-divider>
-    <span>饿了别叫妈, 叫饿了么</span>
-    <el-divider><i class="el-icon-mobile-phone"></i></el-divider>
-    <span>为了无法计算的价值</span>
-    <el-divider content-position="right">阿里云</el-divider>
-  </div>
   <el-dialog title="" :visible.sync="testDialog" width="30%">
     <el-table :data="tableData" border stripe>
       <el-table-column label="账号">
