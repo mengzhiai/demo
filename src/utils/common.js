@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-05 10:18:42
- * @LastEditTime: 2019-10-10 14:05:29
+ * @LastEditTime: 2019-10-16 16:38:43
  * @LastEditors: Please set LastEditors
  */
 export function postMoney(money){
@@ -118,3 +118,6 @@ export function moneyNum(money){
   return parseFloat(money.replace(/\,/g, "") * 100)
 } */
 
+
+const baseUrl1 = "192.168.100.1"
+const baseUrl2 = "192.168.100.2"

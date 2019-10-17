@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 13:25:31
- * @LastEditTime: 2019-10-11 16:46:28
+ * @LastEditTime: 2019-10-17 11:10:34
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -28,6 +28,14 @@
       <el-button type="primary" @click="submitBtn">提交</el-button>
     </el-form-item>
   </el-form>
+  <div>
+    <span>头上一片晴天，心中一个想念</span>
+    <el-divider content-position="left">少年包青天</el-divider>
+    <span>饿了别叫妈, 叫饿了么</span>
+    <el-divider><i class="el-icon-mobile-phone"></i></el-divider>
+    <span>为了无法计算的价值</span>
+    <el-divider content-position="right">阿里云</el-divider>
+  </div>
   <el-dialog title="" :visible.sync="testDialog" width="30%">
     <el-table :data="tableData" border stripe>
       <el-table-column label="账号">
@@ -42,7 +50,7 @@
                 <el-table-column label="age" prop="age">
                 </el-table-column>
               </el-table>
-              
+
               <span slot="reference">{{scope.row.name}}</span>
             </el-popover>
           </div>
@@ -58,29 +66,17 @@
     </el-table>
 
   </el-dialog>
-  <el-table
-      :data="tableData"
-      style="width: 100%" @selection-change="handleSelectionChange">
-      <el-table-column type="selection" :selectable='checkboxIndex' width="55" />
-      <el-table-column
-        prop="date"
-        label="日期"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="姓名"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址">
-      </el-table-column>
-      <el-table-column
-        prop="age"
-        label="地址">
-      </el-table-column>
-    </el-table>
+  <el-table :data="tableData" style="width: 100%" @selection-change="handleSelectionChange">
+    <el-table-column type="selection" :selectable='checkboxIndex' width="55" />
+    <el-table-column prop="date" label="日期" width="180">
+    </el-table-column>
+    <el-table-column prop="name" label="姓名" width="180">
+    </el-table-column>
+    <el-table-column prop="address" label="地址">
+    </el-table-column>
+    <el-table-column prop="age" label="地址">
+    </el-table-column>
+  </el-table>
   <div class="box">
 
   </div>
@@ -94,7 +90,8 @@ import {
   threeNumberAPointer,
   moneyNum,
   toMoneyStr,
-  postMoney
+  postMoney,
+  baseUrl
 } from '@/utils/common.js'
 export default {
   data() {
@@ -121,30 +118,31 @@ export default {
         }
       ],
       tableData: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄',
-            age: 19
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1517 弄',
-            age: 18
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1519 弄',
-            age: 18
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1516 弄',
-            age: -1
-          }]
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄',
+        age: 19
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1517 弄',
+        age: 18
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1519 弄',
+        age: 18
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1516 弄',
+        age: -1
+      }]
     }
   },
   mounted() {
     this.init();
+    console.log(baseUrl);
   },
   methods: {
     init() {
@@ -154,17 +152,17 @@ export default {
       // this.formData.money = threeNumberAPointer(10000000)
       // this.formData.money = 10000000;
     },
-    submitBtn(){
+    submitBtn() {
       let data = {
         // money1: postMoney(this.formData.moneyTest + this.formData.money3),
         money1: (postMoney(this.formData.moneyTest) + postMoney(this.formData.money3)),
         money2: postMoney(this.formData.money)
       }
-      this.axios.post('./aaa',data).then(res=>{
-        
+      this.axios.post('./aaa', data).then(res => {
+
       })
     },
-    handleSelectionChange(data){
+    handleSelectionChange(data) {
       console.log(data);
     },
     /* handleSelectionChange(data){
@@ -178,10 +176,10 @@ export default {
         }
       })
     } */
-    checkboxIndex(row){
-      if(row.age < 0){
+    checkboxIndex(row) {
+      if (row.age < 0) {
         return 0;
-      }else{
+      } else {
         return 1;
       }
     }
