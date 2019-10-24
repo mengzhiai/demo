@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-26 13:25:31
- * @LastEditTime: 2019-10-17 13:35:15
+ * @LastEditTime: 2019-10-21 09:43:29
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -28,6 +28,27 @@
       <el-button type="primary" @click="submitBtn">提交</el-button>
     </el-form-item>
   </el-form>
+  <div>
+    <span>头上一片晴天，心中一个想念</span>
+    <el-divider content-position="left">少年包青天</el-divider>
+    <span>饿了别叫妈, 叫饿了么</span>
+    <el-divider><i class="el-icon-mobile-phone"></i></el-divider>
+    <span>为了无法计算的价值</span>
+    <el-divider content-position="right">阿里云</el-divider>
+  </div>
+  <input type="text" v-model="testInput" disabled>
+  <el-radio-group v-model="radio" @change="radioChange(radio)">
+    <el-row>
+      <el-col :span="12">
+    <el-radio :label="3">备选项</el-radio>
+
+      </el-col>
+      <el-col :span="12">
+    <el-radio :label="6">备选项</el-radio>
+
+      </el-col>
+    </el-row>
+  </el-radio-group>
   <el-dialog title="" :visible.sync="testDialog" width="30%">
     <el-table :data="tableData" border stripe>
       <el-table-column label="账号">
@@ -56,7 +77,6 @@
         </template>
       </el-table-column>
     </el-table>
-
   </el-dialog>
   <el-table :data="tableData" style="width: 100%" @selection-change="handleSelectionChange">
     <el-table-column type="selection" :selectable='checkboxIndex' width="55" />
@@ -129,14 +149,19 @@ export default {
         name: '王小虎',
         address: '上海市普陀区金沙江路 1516 弄',
         age: -1
-      }]
+      }],
+      testInput: 'fdsafds',
+      radio: 3
     }
   },
   mounted() {
+    console.log(this.testInput);
     this.init();
-    console.log(baseUrl);
   },
   methods: {
+    radioChange(val){
+      console.log(val);
+    },
     init() {
       let time = new Date().getTime();
       this.formData.nowDate = formatDate(time);
