@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-05 09:43:27
- * @LastEditTime: 2019-10-24 15:48:40
+ * @LastEditTime: 2019-10-24 15:50:56
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -133,6 +133,7 @@ export default {
     nowNumber() {
       return this.$store.state.count;
     },
+    
     //监听form中的值
     userInfo: {
       handler: function (val) {
