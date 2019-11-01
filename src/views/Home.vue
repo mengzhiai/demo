@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-10-17 16:14:24
+ * @LastEditTime: 2019-10-25 15:52:31
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -28,6 +28,7 @@
             <el-menu-item index="edit2">编译器</el-menu-item>
             <el-menu-item index="response">响应式</el-menu-item>
             <el-menu-item index="es6">es6</el-menu-item>
+            <el-menu-item index="login">logo</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="2">
