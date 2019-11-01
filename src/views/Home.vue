@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-10-25 15:52:31
+ * @LastEditTime: 2019-11-01 17:24:10
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -29,6 +29,8 @@
             <el-menu-item index="response">响应式</el-menu-item>
             <el-menu-item index="es6">es6</el-menu-item>
             <el-menu-item index="login">logo</el-menu-item>
+            <el-menu-item index="binding">双向绑定</el-menu-item>
+            <el-menu-item index="vuex">vuex</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
         <el-menu-item index="2">
@@ -44,6 +46,7 @@
           <span slot="title">导航四</span>
         </el-menu-item>
       </el-menu>
+      {{getData}}
     </el-col>
     <el-col :span="20">
       <router-view></router-view>
@@ -63,6 +66,11 @@ export default {
 
       },
     };
+  },
+  computed:{
+    getData(){
+      return this.$store.state.objData.num;
+    }
   },
   mounted(){
     this.init();

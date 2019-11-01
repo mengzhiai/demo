@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-10-25 15:52:00
+ * @LastEditTime: 2019-11-01 16:49:43
  * @LastEditors: Please set LastEditors
  */
 import Vue from 'vue'
@@ -153,6 +153,22 @@ export default new Router({
 
           ],
           component: () => import('./views/es6.vue')
+        },
+        {
+          path: '/binding',
+          name: 'binding',
+          meta: [
+
+          ],
+          component: () => import('./views/new/binding')
+        },
+        {
+          path: '/vuex',
+          name: 'vuex',
+          meta: [
+
+          ],
+          component: () => import('./views/new/vuex')
         }
       ]
     }]

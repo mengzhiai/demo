@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 16:51:26
- * @LastEditTime: 2019-08-01 16:51:26
- * @LastEditors: your name
+ * @LastEditTime: 2019-11-01 16:51:07
+ * @LastEditors: Please set LastEditors
  -->
 <template>
   <div id="app">
@@ -16,7 +16,6 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 #nav {

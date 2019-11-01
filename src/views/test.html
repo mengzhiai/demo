@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
- * @Date: 2019-09-06 14:44:59
- * @LastEditTime: 2019-10-24 16:24:03
+ * @Date: 2019-10-24 16:31:13
+ * @LastEditTime: 2019-11-01 15:39:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \demo\src\views\test.html
@@ -14,21 +14,38 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-<body>1111
-  <p>2222</p>
-  <h3>test</h3>
-  <h5>h5</h5>
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
   <script>
-    class Point{
-      constructor(x,y){
-        this.x = x;
-        this.y = y;
-      }
-      
-      toString(){
-        return this.x + this.y;
-      }
-    }
+    var vm = new Vue({
+      el:'#app',
+      data:{
+        message: '234234'
+      },
+      beforeCreate () {
+        console.log('beforeCreate------------');
+        console.log('beforeCreate',this.message);
+        console.log('beforeCreate',this.$el);
+      },
+      created () {
+        console.log('created-----------');
+        console.log('created',this.message);
+        console.log('created',this.$el);     
+      },
+      beforeMount() {
+        console.log('beforeMount------------');
+        console.log('beforeMount',this.message);
+        console.log('beforeMount',this.$el);
+      },
+      mounted() {
+        console.log('mounted---------------');
+        console.log('mounted',this.message);
+        console.log('mounted',this.$el);
+      },
+    })
   </script>
 </body>
 </html>
