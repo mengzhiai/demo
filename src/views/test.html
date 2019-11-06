@@ -1,51 +1,55 @@
 <!--
  * @Author: your name
  * @Date: 2019-10-24 16:31:13
- * @LastEditTime: 2019-11-01 15:39:46
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-11-04 10:04:57
+ * @LastEditors: your name
  * @Description: In User Settings Edit
  * @FilePath: \demo\src\views\test.html
  -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/joint.css" />
 </head>
 <body>
-  <div id="app">
-    {{message}}
-  </div>
-  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
-  <script>
-    var vm = new Vue({
-      el:'#app',
-      data:{
-        message: '234234'
-      },
-      beforeCreate () {
-        console.log('beforeCreate------------');
-        console.log('beforeCreate',this.message);
-        console.log('beforeCreate',this.$el);
-      },
-      created () {
-        console.log('created-----------');
-        console.log('created',this.message);
-        console.log('created',this.$el);     
-      },
-      beforeMount() {
-        console.log('beforeMount------------');
-        console.log('beforeMount',this.message);
-        console.log('beforeMount',this.$el);
-      },
-      mounted() {
-        console.log('mounted---------------');
-        console.log('mounted',this.message);
-        console.log('mounted',this.$el);
-      },
-    })
-  </script>
+<!-- content -->
+<div id="myholder"></div>
+<!-- dependencies -->
+<script src="js/jquery.js"></script>
+<script src="js/lodash.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/joint.js"></script>
+<!-- code -->
+<script type="text/javascript">
+    var graph = new joint.dia.Graph;
+    var paper = new joint.dia.Paper({
+        el: document.getElementById('myholder'),
+        model: graph,
+        width: 600,
+        height: 100,
+        gridSize: 1
+    });
+    var rect = new joint.shapes.standard.Rectangle();
+    rect.position(100, 30);
+    rect.resize(100, 40);
+    rect.attr({
+        body: {
+            fill: 'blue'
+        },
+        label: {
+            text: 'Hello',
+            fill: 'white'
+        }
+    });
+    rect.addTo(graph);
+    var rect2 = rect.clone();
+    rect2.translate(300, 0);
+    rect2.attr('label/text', 'World!');
+    rect2.addTo(graph);
+    var link = new joint.shapes.standard.Link();
+    link.source(rect);
+    link.target(rect2);
+    link.addTo(graph);
+</script>
 </body>
 </html>

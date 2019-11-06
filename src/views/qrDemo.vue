@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-09-05 09:43:27
- * @LastEditTime: 2019-10-24 15:50:56
+ * @LastEditTime: 2019-11-04 16:57:15
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -125,7 +125,7 @@ export default {
         console.log('aaa');
       }
     } */
-    nowNumber(val){
+    nowNumber(val) {
       console.log(val);
     }
   },
@@ -133,19 +133,56 @@ export default {
     nowNumber() {
       return this.$store.state.count;
     },
-    
+
     //监听form中的值
     userInfo: {
       handler: function (val) {
         this.userInfo.nickName = val.nickName.toUpperCase()
       },
       deep: true
-    }
+    },
+    
   },
   mounted() {
-    log('11');
+    this.init();
   },
   methods: {
+    init() {
+      var arr = [{
+          name: "李一",
+          num: "0001",
+          age: 40,
+          sex: "男",
+          count: 20
+        },
+        {
+          name: "王一",
+          num: "0002",
+          age: 32,
+          sex: "女",
+          count: 20
+        },
+        {
+          name: "赵一",
+          num: "0001",
+          age: 30,
+          sex: "男",
+          count: 41
+        },
+        {
+          name: "何一",
+          num: "0001",
+          age: 40,
+          sex: "男",
+          count: 25
+        }
+    ]
+      let sumTotal = 0;
+      for(var i=0; i< arr.length;i++){
+        sumTotal += arr[i].count
+      }
+      console.log(sumTotal);
+    },
     clickBtn() {
       /* let data = {
         number: 111
